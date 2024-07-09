@@ -69,7 +69,7 @@ Hooks.on( "hoverToken", function ( token, hovered )
                 return user.avatar ? `<img src="${ user.avatar }" alt="${ user.name }" title="${ user.name }" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">` : '';
             } ).join( '' );
 
-            const tokenPos = token.getCenter();
+            const tokenPos = token.getCenter(); // getCenterPoint for Foundry v12+
             const canvasPos = canvas.stage.worldTransform.apply( tokenPos );
 
             let hoverDiv = $( `<div class="hover-token-targeters" style="position: absolute; pointer-events: none; transform: translate(-50%, -50%);">${ avatars }</div>` );
