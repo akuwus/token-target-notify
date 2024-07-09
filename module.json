@@ -16,7 +16,7 @@
   ],
   "esmodules": [
     "src/debounce.js",
-    "src/hooks/targetToken.js",
+    "src/hooks/tokens.js",
     "src/hooks/init.js"
   ],
   "url": "https://github.com/akuwus/token-target-notify",

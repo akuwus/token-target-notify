@@ -1,0 +1,1 @@
+- Hovering over a token shows the players targeting the token.

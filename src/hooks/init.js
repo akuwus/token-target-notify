@@ -12,6 +12,10 @@ Hooks.once( "init", () =>
         name: "Bold Names", hint: "Bold the name of the player and token.", scope: "client", config: true, type: Boolean, default: true, onChange: value => console.log( "Bold changed to ", value )
     } );
 
+    game.settings.register( "token-target-notify", "tokenTargets", {
+        name: "Display Tokens", hint: "Display the token over a target.", scope: "client", config: true, type: Boolean, default: true, onChange: value => console.log( "Token Display selection changed to ", value )
+    } );
+
     game.settings.register( "token-target-notify", "targetColor", {
         name: "Target Color", hint: "The color to use when a token is targeted.", scope: "client", config: true, type: String, default: "#FF0000", onChange: value => console.log( "Target Color changed to ", value )
     } );
