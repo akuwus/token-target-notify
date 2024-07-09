@@ -1,4 +1,5 @@
 import { chat_message_debounced } from "../debounce.js";
+
 let token_targets = {};
 
 Hooks.on( "targetToken", function ( user, token, targeted )
@@ -68,17 +69,35 @@ Hooks.on( "hoverToken", function ( token, hovered )
                 return user.avatar ? `<img src="${ user.avatar }" alt="${ user.name }" title="${ user.name }" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">` : '';
             } ).join( '' );
 
-            const token_pos = token.getCenterPoint();
-            const canvas_pos = canvas.stage.worldTransform.apply( token_pos );
+            const tokenPos = token.getCenter();
+            const canvasPos = canvas.stage.worldTransform.apply( tokenPos );
 
-            let hover_div = $( `<div class="hover-token-targeters" style="position: absolute; pointer-events: none; transform: translate(-50%, -50%);">${ avatars }</div>` );
+            let hoverDiv = $( `<div class="hover-token-targeters" style="position: absolute; pointer-events: none; transform: translate(-50%, -50%);">${ avatars }</div>` );
 
-            hover_div.css( {
-                top: canvas_pos.y + 'px',
-                left: canvas_pos.x + 'px'
+            hoverDiv.css( {
+                top: canvasPos.y + 'px',
+                left: canvasPos.x + 'px'
             } );
 
-            $( 'body' ).append( hover_div );
+            $( 'body' ).append( hoverDiv );
+
+            const updatePosition = () =>
+            {
+                const newCanvasPos = canvas.stage.worldTransform.apply( tokenPos );
+                hoverDiv.css( {
+                    top: newCanvasPos.y + 'px',
+                    left: newCanvasPos.x + 'px'
+                } );
+            };
+
+            canvas.stage.on( 'mousemove', updatePosition );
+            canvas.stage.on( 'wheel', updatePosition );
+
+            hoverDiv.on( 'remove', () =>
+            {
+                canvas.stage.off( 'mousemove', updatePosition );
+                canvas.stage.off( 'wheel', updatePosition );
+            } );
         }
     }
     else
