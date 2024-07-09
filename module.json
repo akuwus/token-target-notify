@@ -19,6 +19,10 @@
     "src/hooks/targetToken.js",
     "src/hooks/init.js"
   ],
+  "url": "https://github.com/akuwus/token-target-notify",
   "description": "Should keep inattentive players aware of combat targets.",
-  "url": "https://raw.githubusercontent.com/akuwus/token-target-notify/master/module.json"
+  "manifest": "https://raw.githubusercontent.com/akuwus/token-target-notify/master/module.json",
+  "readme": "https://github.com/akuwus/token-target-notify/blob/master/README.md",
+  "changelog": "https://github.com/akuwus/token-target-notify/blob/master/CHANGELOG.md",
+  "bugs": "https://github.com/akuwus/token-target-notify/issues"
 }
