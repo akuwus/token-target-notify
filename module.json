@@ -1,0 +1,24 @@
+{
+  "id": "token-target-notify",
+  "title": "token-target-notify",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "aku",
+      "discord": "akuwus",
+      "url": "https://github.com/akuwus",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "src/debounce.js",
+    "src/hooks/targetToken.js",
+    "src/hooks/init.js"
+  ],
+  "description": "Should keep inattentive players aware of combat targets.",
+  "url": "https://raw.githubusercontent.com/akuwus/token-target-notify/master/module.json"
+}
